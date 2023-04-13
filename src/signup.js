@@ -1,10 +1,15 @@
 import React from 'react';
 import './signup.css';
 
-function SignUp() {
+function SignUp(props) {
   function handleSubmit(event) {
     event.preventDefault();
+    props.onSignUp();
     // handle form submission here
+  }
+
+  function handleGoBack() {
+    props.onGoBack();
   }
 
   return (
@@ -26,6 +31,8 @@ function SignUp() {
           required
         />
         <button class = "submitsign" type="submit">Sign Up</button>
+        <p> or </p>
+        <button className="goback" onClick={handleGoBack}>Go back</button>
       </form>
       
     </div>
