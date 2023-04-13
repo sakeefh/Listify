@@ -34,4 +34,10 @@
     font-weight: bold;
     cursor: pointer;
   }
+
+  .logout {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
   
