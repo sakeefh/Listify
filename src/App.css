@@ -1,85 +1,82 @@
-import React, { useState } from 'react';
-import './App.css';
-import image from './images/logo.png';
-import SignUp from './signup';
-import SignIn from './signin';
-import Main from './main';
-import './main.css';
-
-function App() {
-  const [showSignIn, setShowSignIn] = useState(false);
-  const [showSignUp, setShowSignUp] = useState(false);
-  const [showCircle, setShowCircle] = useState(false);
-  const [circleColor, setCircleColor] = useState('');
-  const [hideHeader, setHideHeader] = useState(false);
-  const [showMain, setShowMain] = useState(false);
-
-  function handleSignIn() {
-    setShowSignIn(true);
-    setShowSignUp(false);
-    setShowCircle(true);
-    setHideHeader(true);
-    setCircleColor('pink');
-  }
-
-  function handleSignUp() {
-    setShowSignIn(false);
-    setShowSignUp(true);
-    setShowCircle(true);
-    setCircleColor('purple');
-    setHideHeader(true);
-  }
-
-  function handleShowMain() {
-    setShowMain(true);
-    setShowSignIn(false);
-    setShowSignUp(false);
-    setShowCircle(false);
-    setHideHeader(true);
-  }
-
-  function handleGoBack() {
-    setShowMain(false);
-    setShowSignIn(false);
-    setShowSignUp(false);
-    setShowCircle(false);
-    setHideHeader(false);
-  }
-
-  function handleLogout() {
-    setShowMain(false);
-    setHideHeader(false);
-  }
-
-  return (
-    <div className="App">
-      {!hideHeader && (
-        <>
-          <div className="circle circle--bottom-left" />
-          <div className="circle circle--top-right" />
-          <img class="logo" src={image} alt="Logo" />
-          <h1>Listify</h1>
-          <button className="signin" onClick={handleSignIn}>
-            Sign In
-          </button>
-          <p>or</p>
-          <button className="signup" onClick={handleSignUp}>
-            Sign Up
-          </button>
-        </>
-      )}
-
-      {showSignIn && <SignIn onGoBack={handleGoBack} onSignIn={handleShowMain} />}
-      {showSignUp && <SignUp onGoBack={handleGoBack} onSignUp={handleShowMain} />}
-      {showMain && <Main onLogout={handleLogout} />}
-      {showCircle && (
-        <div
-          className="circle circle--center"
-          style={{ backgroundColor: circleColor }}
-        />
-      )}
-    </div>
-  );
+.App {
+  text-align: center;
 }
 
-export default App;
+h1 {
+  font-size: 80px;
+  color: black;
+}
+
+button {
+  display: block;
+  margin: 0 auto;
+  width: 200px;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
+  cursor: pointer;
+}
+
+.signIn {
+  background-color: rgb(206, 96, 170);
+}
+
+.signUp {
+  background-color: rgb(174, 5, 174);
+}
+
+
+.circle {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+.circle--bottom-left {
+  bottom: -250px;
+  left: -250px;
+  background-color: rgb(206, 96, 170);
+}
+
+.circle--top-right {
+  top: -250px;
+  right: -250px;
+  background-color: rgb(174, 5, 174);
+}
+
+.signin {
+
+  background-color: rgb(206, 96, 170);
+
+}
+
+.signup {
+
+  background-color: rgb(174, 5, 174);
+
+}
+
+.main {
+
+  background-color: rgb(174, 5, 174);
+  
+
+}
+
+.logo {
+
+  width: 200px;
+  margin-top: 105px;
+
+}
+
+.circle--center {
+  top: calc(50% - 300px);
+  left: calc(50% - 300);
+}
