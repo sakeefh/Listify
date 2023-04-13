@@ -1,0 +1,82 @@
+.App {
+  text-align: center;
+}
+
+h1 {
+  font-size: 80px;
+  color: black;
+}
+
+button {
+  display: block;
+  margin: 0 auto;
+  width: 200px;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
+  cursor: pointer;
+}
+
+.signIn {
+  background-color: rgb(206, 96, 170);
+}
+
+.signUp {
+  background-color: rgb(174, 5, 174);
+}
+
+
+.circle {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+.circle--bottom-left {
+  bottom: -250px;
+  left: -250px;
+  background-color: rgb(206, 96, 170);
+}
+
+.circle--top-right {
+  top: -250px;
+  right: -250px;
+  background-color: rgb(174, 5, 174);
+}
+
+.signin {
+
+  background-color: rgb(206, 96, 170);
+
+}
+
+.signup {
+
+  background-color: rgb(174, 5, 174);
+
+}
+
+.main {
+
+  background-color: rgb(174, 5, 174);
+  
+
+}
+
+.logo {
+
+  width: 200px;
+  margin-top: 105px;
+
+}
+
+.circle--center {
+  top: calc(50% - 300px);
+  left: calc(50% - 300);
+}
