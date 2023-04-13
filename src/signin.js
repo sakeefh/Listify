@@ -1,11 +1,14 @@
 import React from 'react';
 import './signin.css';
-import { Link } from 'react-router-dom';
 
-function SignIn() {
+function SignIn(props) {
   function handleSubmit(event) {
     event.preventDefault();
-    // handle form submission here
+    props.onSignIn();
+  }
+
+  function handleGoBack() {
+    props.onGoBack();
   }
 
   return (
@@ -25,9 +28,9 @@ function SignIn() {
           required
         />
         <button className="submit" type="submit">Sign In</button>
-        
+        <p> or </p>
+        <button className="goback" onClick={handleGoBack}>Go back</button>
       </form>
-      
     </div>
   );
 }
