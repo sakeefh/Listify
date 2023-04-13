@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './main.css';
 
-function Main() {
+function Main(props) {
   const [cards, setCards] = useState([]);
 
   function handleAddCard() {
@@ -18,6 +18,10 @@ function Main() {
     setCards(updatedCards);
   }
 
+  function handleLogout() {
+    props.onLogout();
+  }
+
   return (
     <div className="Main">
       <h1>My Cards</h1>
@@ -31,6 +35,7 @@ function Main() {
           <button onClick={() => handleDeleteCard(index)}>Delete Card</button>
         </div>
       ))}
+      <button className="logout" onClick={handleLogout}>Logout</button>
     </div>
   );
 }
