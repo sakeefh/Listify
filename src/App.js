@@ -38,6 +38,19 @@ function App() {
     setHideHeader(true);
   }
 
+  function handleGoBack() {
+    setShowMain(false);
+    setShowSignIn(false);
+    setShowSignUp(false);
+    setShowCircle(false);
+    setHideHeader(false);
+  }
+
+  function handleLogout() {
+    setShowMain(false);
+    setHideHeader(false);
+  }
+
   return (
     <div className="App">
       {!hideHeader && (
@@ -56,12 +69,9 @@ function App() {
         </>
       )}
 
-      {showSignIn && <SignIn />}
-      {showSignUp && <SignUp />}
-      {!showSignIn && !showSignUp && !showMain && (
-        <button class = 'main' onClick={handleShowMain}>Main</button>
-      )}
-      {showMain && <Main />}
+      {showSignIn && <SignIn onGoBack={handleGoBack} onSignIn={handleShowMain} />}
+      {showSignUp && <SignUp onGoBack={handleGoBack} onSignUp={handleShowMain} />}
+      {showMain && <Main onLogout={handleLogout} />}
       {showCircle && (
         <div
           className="circle circle--center"
