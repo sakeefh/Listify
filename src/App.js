@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import './App.css';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import image from './images/logo.png';
 import SignUp from './signup';
 import SignIn from './signin';
 import Main from './main';
-import './main.css';
 
 function App() {
+
   const [showSignIn, setShowSignIn] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
   const [showCircle, setShowCircle] = useState(false);
@@ -15,70 +16,67 @@ function App() {
   const [showMain, setShowMain] = useState(false);
 
   function handleSignIn() {
-    setShowSignIn(true);
-    setShowSignUp(false);
     setShowCircle(true);
     setHideHeader(true);
     setCircleColor('pink');
   }
 
   function handleSignUp() {
-    setShowSignIn(false);
-    setShowSignUp(true);
     setShowCircle(true);
     setCircleColor('purple');
     setHideHeader(true);
   }
 
   function handleShowMain() {
-    setShowMain(true);
-    setShowSignIn(false);
-    setShowSignUp(false);
     setShowCircle(false);
     setHideHeader(true);
   }
 
   function handleGoBack() {
-    setShowMain(false);
-    setShowSignIn(false);
-    setShowSignUp(false);
     setShowCircle(false);
     setHideHeader(false);
+    setShowSignIn(true);
+    setShowSignUp(true);
   }
 
   function handleLogout() {
-    setShowMain(false);
     setHideHeader(false);
+    setShowMain(true);
   }
 
   return (
-    <div className="App">
-      {!hideHeader && (
-        <>
-          <div className="circle circle--bottom-left" />
-          <div className="circle circle--top-right" />
-          <img class="logo" src={image} alt="Logo" />
-          <h1>Listify</h1>
-          <button className="signin" onClick={handleSignIn}>
-            Sign In
-          </button>
-          <p>or</p>
-          <button className="signup" onClick={handleSignUp}>
-            Sign Up
-          </button>
-        </>
-      )}
-
-      {showSignIn && <SignIn onGoBack={handleGoBack} onSignIn={handleShowMain} />}
-      {showSignUp && <SignUp onGoBack={handleGoBack} onSignUp={handleShowMain} />}
-      {showMain && <Main onLogout={handleLogout} />}
-      {showCircle && (
-        <div
-          className="circle circle--center"
-          style={{ backgroundColor: circleColor }}
-        />
-      )}
-    </div>
+    <Router>
+      <div className="App">
+        {!hideHeader && (
+          <>
+            <div className="circle circle--bottom-left" />
+            <div className="circle circle--top-right" />
+            <img className="logo" src={image} alt="Logo" />
+            <h1>Listify</h1>
+            <nav>
+            <ul>
+              <li>
+                <button className="signin" onClick={handleSignIn}>
+                <Link to="/signin">Sign In </Link>
+                </button>
+              </li>
+              <p>or</p>
+              <li>
+                <button className="signup" onClick={handleSignUp}>
+                  <Link to="/signup">Sign Up </Link>
+                </button>
+              </li>
+            </ul>
+          </nav>
+          </>
+        )}
+        <Routes>
+        <Route path="/signin" element={<SignIn handleGoBack={handleGoBack} handleShowMain={handleShowMain} />} />
+        <Route path="/signup" element={<SignUp handleGoBack={handleGoBack} handleShowMain={handleShowMain} />} />
+          <Route path="/main" element={<Main handleLogout={handleLogout} />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
