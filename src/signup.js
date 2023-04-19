@@ -1,15 +1,18 @@
 import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './signup.css';
 
 function SignUp(props) {
-  function handleSubmit(event) {
-    event.preventDefault();
-    props.onSignUp();
-    // handle form submission here
-  }
+  const navigate = useNavigate();
+
+function handleSubmit(event) {
+  event.preventDefault();
+  props.handleShowMain();
+  navigate('/main');
+}
 
   function handleGoBack() {
-    props.onGoBack();
+    props.handleGoBack();
   }
 
   return (
@@ -30,9 +33,9 @@ function SignUp(props) {
           name="confirmPassword"
           required
         />
-        <button class = "submitsign" type="submit">Sign Up</button>
+        <button className = "submitsign" type="submit">Sign Up</button>
         <p> or </p>
-        <button className="goback" onClick={handleGoBack}>Go back</button>
+        <button className="goback" onClick={() => handleGoBack()}><Link className="goback" to="/">Go back</Link></button>
       </form>
       
     </div>
