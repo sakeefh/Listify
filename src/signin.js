@@ -1,14 +1,14 @@
 import React from 'react';
 import './signin.css';
+import { Link, useNavigate } from 'react-router-dom';
 
-function SignIn(props) {
+function SignIn({ handleGoBack, handleShowMain }) {
+  const navigate = useNavigate();
+
   function handleSubmit(event) {
     event.preventDefault();
-    props.onSignIn();
-  }
-
-  function handleGoBack() {
-    props.onGoBack();
+    navigate('/main');
+    handleShowMain();
   }
 
   return (
@@ -29,7 +29,7 @@ function SignIn(props) {
         />
         <button className="submit" type="submit">Sign In</button>
         <p> or </p>
-        <button className="goback" onClick={handleGoBack}>Go back</button>
+        <button className="goback" onClick={() => handleGoBack(handleShowMain)}><Link className="goback" to="/">Go back</Link></button>
       </form>
     </div>
   );
