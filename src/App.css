@@ -7,6 +7,13 @@ h1 {
   color: black;
 }
 
+a:visited {
+
+  color:white;
+  text-decoration: none;
+
+}
+
 button {
   display: block;
   margin: 0 auto;
@@ -17,9 +24,15 @@ button {
   font-size: 24px;
   font-weight: bold;
   text-transform: uppercase;
+  text-decoration: none;
   color: white;
   cursor: pointer;
 }
+
+ul {
+  list-style-type: none;
+}
+
 
 .signIn {
   background-color: rgb(206, 96, 170);
