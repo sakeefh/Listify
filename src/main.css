@@ -35,6 +35,13 @@
     cursor: pointer;
   }
 
+  .card img {
+    width: 20%;
+    height: 20%;
+    margin-top: 10px;
+  }
+  
+
   .logout {
     position: absolute;
     top: 0;
