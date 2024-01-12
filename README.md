@@ -4,7 +4,7 @@ Listify is a modern and responsive to-do list application that allows users to c
 
 ## Features
 
-- **Secure Access:** Your account ensures the privacy and security of your data. We employ robust authentication measures to safeguard your information.
+- **Secure Access:** Users are able to create their own account to save their reminders and task lists using their email and password.
 
 - **Responsive Design:** Listify provides a seamless experience across various devices with its responsive design, ensuring accessibility for users on desktops, tablets, and smartphones.
 
