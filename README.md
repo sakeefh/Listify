@@ -1,4 +1,4 @@
-# Listify - A Responsive To-Do List App
+# Listify 📘 - A Responsive To-Do List App
 
 Listify is a responsive to-do list application that allows users to create, manage, and receive reminders for their tasks. This project was developed as the final project for the web programming course, showcasing the use of HTML, CSS, JavaScript, and React Native for building a user-friendly interface.
 
