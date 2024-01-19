@@ -14,14 +14,9 @@ Listify is a responsive to-do list application that allows users to create, mana
 
 ## Technologies Used
 
-- **Frontend:**
-  - HTML
-  - CSS
-  - JavaScript
-  - React Native
+- **Frontend:** `HTML` `CSS` `JavaScript` `React Native`
 
-- **Backend:**
-  - MongoDB
+- **Backend:** `MongoDB`
 
 ## Getting Started
 
